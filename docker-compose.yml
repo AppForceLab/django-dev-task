@@ -21,5 +21,21 @@ services:
     env_file:
       - .env
 
+  redis:
+    image: redis:7
+#    ports:
+#      - "6379:6379"
+
+  worker:
+    build: .
+    command: celery -A CVProject worker --loglevel=info
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+
 volumes:
   postgres_data:
