@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 14px;
+      color: #333;
+      margin: 40px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 5px;
+      color: #2c3e50;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #1a73e8;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 3px;
+    }
+
+    p {
+      margin: 4px 0;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #444;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+  </style>
+    <title></title>
+</head>
+<body>
+  <h1>{{ cv.firstname }} {{ cv.lastname }}</h1>
+
+  <div class="box">
+    <div class="section">
+      <div class="section-title">Bio</div>
+      <p>{{ cv.bio }}</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <p>{{ cv.skills }}</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Projects</div>
+      <p>{{ cv.projects }}</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Contact</div>
+      <p>{{ cv.contacts }}</p>
+    </div>
+  </div>
+</body>
+</html>

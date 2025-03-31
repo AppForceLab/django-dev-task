@@ -7,6 +7,9 @@
 <div class="card shadow-sm border-0">
   <div class="card-body">
     <h2 class="card-title">{{ cv.firstname }} {{ cv.lastname }}</h2>
+      <a href="{% url 'download_cv_pdf' cv.pk %}" class="btn btn-success btn-sm mt-3">
+  Download PDF
+</a>
     <hr>
     <p><strong>Bio:</strong> {{ cv.bio }}</p>
     <p><strong>Skills:</strong> {{ cv.skills }}</p>
