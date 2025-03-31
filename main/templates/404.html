@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - 404{% endblock %}
+
+{% block content %}
+<div class="text-center">
+  <h1 class="display-1 text-danger">404</h1>
+  <p class="lead">Oops! The page you are looking for was not found.</p>
+  <a href="{% url 'cv_list' %}" class="btn btn-warning mt-3">Go Back Home</a>
+</div>
+{% endblock %}

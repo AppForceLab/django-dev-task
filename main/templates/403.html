@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Access Denied - 403{% endblock %}
+
+{% block content %}
+<div class="text-center">
+  <h1 class="display-1 text-warning">403</h1>
+  <p class="lead">You do not have permission to access this page.</p>
+  <a href="{% url 'cv_list' %}" class="btn btn-dark mt-3">Go to Main Page</a>
+</div>
+{% endblock %}
