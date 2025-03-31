@@ -45,27 +45,115 @@
         </div>
       </form>
 
+      <form id="translate-form" class="row g-3 align-items-end mb-4">
+        {% csrf_token %}
+        <div class="col-md-8">
+          <label for="language" class="form-label">Select Language</label>
+          <select name="language" id="language" class="form-select" required>
+            {% for code, name in languages %}
+              <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-4">
+          <button id="translate-btn" type="submit" class="btn btn-outline-primary w-100">
+            <i class="bi bi-globe"></i> Translate
+          </button>
+        </div>
+      </form>
+
+      <!-- Fullscreen overlay loader, initially hidden -->
+    <div id="loader-overlay"
+         style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: transparent; z-index: 9999;">
+      <div class="d-flex align-items-center justify-content-center" style="height: 100%;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+      <!-- Error alert placeholder -->
+      <div id="error-alert" class="alert alert-danger d-none mt-3" role="alert">
+        <!-- Error message will be inserted here -->
+      </div>
+
       <hr class="my-4">
 
       <div class="row gy-4">
         <div class="col-md-6">
           <h5 class="fw-semibold">Bio</h5>
-          <p>{{ cv.bio }}</p>
+          <p id="bio-content">{{ cv.bio }}</p>
         </div>
         <div class="col-md-6">
           <h5 class="fw-semibold">Skills</h5>
-          <p>{{ cv.skills }}</p>
+          <p id="skills-content">{{ cv.skills }}</p>
         </div>
         <div class="col-md-6">
           <h5 class="fw-semibold">Projects</h5>
-          <p>{{ cv.projects }}</p>
+          <p id="projects-content">{{ cv.projects }}</p>
         </div>
         <div class="col-md-6">
           <h5 class="fw-semibold">Contacts</h5>
-          <p>{{ cv.contacts }}</p>
+          <p id="contacts-content">{{ cv.contacts }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+document.getElementById('translate-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const language = document.getElementById('language').value;
+  const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  const loader = document.getElementById('loader-overlay');
+  const translateBtn = document.getElementById('translate-btn');
+  const errorAlert = document.getElementById('error-alert');
+
+  // Hide previous error
+  errorAlert.classList.add('d-none');
+  errorAlert.textContent = '';
+
+  // Show loader and disable button
+  loader.style.display = 'block';
+  translateBtn.disabled = true;
+
+  fetch("{% url 'translate_cv' cv.pk %}", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'X-CSRFToken': csrfToken
+    },
+    body: new URLSearchParams({ 'language': language })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Server returned an error');
+    }
+    return response.json();
+  })
+  .then(data => {
+    if (data.status === 'success') {
+      const { bio, skills, projects, contacts } = JSON.parse(data.translation);
+      document.getElementById('bio-content').textContent = bio;
+      document.getElementById('skills-content').textContent = skills;
+      document.getElementById('projects-content').textContent = projects;
+      document.getElementById('contacts-content').textContent = contacts;
+    } else {
+      throw new Error(data.message || 'Translation failed.');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    errorAlert.textContent = 'Translation service is currently unavailable. Please try again later.';
+    errorAlert.classList.remove('d-none');
+  })
+  .finally(() => {
+    // Hide loader and enable button
+    loader.style.display = 'none';
+    translateBtn.disabled = false;
+  });
+});
+</script>
 {% endblock %}

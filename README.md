@@ -319,3 +319,42 @@ Login with superuser credentials from .env.
 
 ```
 </details> 
+
+### 🔵 Task 8: OpenAI Basics
+
+✅ **Implemented Features**
+- CV Detail Page now supports translation via OpenAI.
+- Users can select a target language and translate the CV using an OpenAI-powered endpoint.
+- Translated fields: `bio`, `skills`, `projects`, and `contacts`.
+- Uses `fetch` API and CSRF tokens to securely send requests from the frontend.
+- Responsive UI feedback:
+  - Fullscreen loader overlay while translating
+  - Disabled "Translate" button to prevent multiple clicks
+  - Clear error message if translation service is unavailable
+
+✅ **User Experience Enhancements**
+- No visual flicker: loader overlay does not blur or dim existing content.
+- Spinner appears centered on screen.
+- API error handling with a Bootstrap alert:
+  > “Translation service is currently unavailable. Please try again later.”
+
+📌 **How It Works**
+- The `/cv/<id>/` detail page contains a language selection form.
+- On submit, a `POST` request is sent to the `translate_cv` view.
+- The view handles translation using OpenAI and returns JSON.
+- JavaScript updates the relevant sections of the page dynamically.
+
+🧪 **How to Test**
+1. Run the server locally or via Docker.
+2. Navigate to `/cv/1/` (or any CV ID).
+3. Select a language and click “Translate”.
+4. Observe:
+   - Spinner overlay during the request
+   - CV text updates on success
+   - Error alert on failure
+
+🛠 **Environment Setup**
+Add your OpenAI API key to the `.env` file:
+
+```env
+OPENAI_API_KEY=your-key-here

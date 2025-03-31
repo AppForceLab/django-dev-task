@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Translated CV{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <a href="{% url 'cv_detail' cv.pk %}" class="btn btn-outline-secondary mb-3">
+    &larr; Back to CV
+  </a>
+
+  <div class="card shadow-sm rounded-4 border-0">
+    <div class="card-body">
+      <h2 class="fw-bold mb-4">CV translated to {{ language_name }}</h2>
+      <pre style="white-space: pre-wrap;">{{ translation }}</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}
