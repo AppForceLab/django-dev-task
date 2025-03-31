@@ -273,3 +273,49 @@ OK
 | `/settings/`  | View that renders current settings   |
 
 </details>
+
+### 🔵 Task 6: Docker Basics
+
+<details open>
+<summary><strong>Expand/Collapse Details</strong></summary>
+
+#### ✅ Implemented Features
+
+- ✔️ Created a `Dockerfile` based on `python:3.12-slim` with system dependencies for HTML-to-PDF support.
+- ✔️ Switched from SQLite to PostgreSQL in development using Docker Compose.
+- ✔️ Used a `.env` file to store environment variables such as database credentials and superuser data.
+- ✔️ Created an `entrypoint.sh` script that:
+  - Runs migrations
+  - Creates a Django superuser (if not already present)
+  - Loads sample fixture data from `fixtures/sample_cv.json`
+  - Starts the Django development server
+- ✔️ Added a `volumes` entry to persist PostgreSQL data between container restarts.
+- ✔️ Project now runs fully containerised using two services: `web` and `db`.
+
+#### 📂 Project Structure Highlights
+
+├── Dockerfile ├── docker-compose.yml ├── entrypoint.sh ├── .env └── fixtures/ └── sample_cv.json
+
+bash
+Copy
+Edit
+
+#### ⚙️ How to Run
+
+1. Copy `.env.example` to `.env` and set values as needed:
+```bash
+cp .env.example .env
+Build and start the containers:
+
+bash
+Copy
+Edit
+docker-compose build
+docker-compose up
+App will be accessible at http://localhost:8000
+
+Admin panel: http://localhost:8000/admin/
+Login with superuser credentials from .env.
+
+```
+</details> 

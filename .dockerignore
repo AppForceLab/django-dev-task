@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migrations
+**/migrations/
+!*/migrations/__init__.py
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Environments
+.env
+.env.*
+
+# Python virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# VSCode and IDE configs
+.vscode/
+.idea/
+*.swp
+
+# Node modules (if using JS build)
+node_modules/
+
+# System files
+.DS_Store
+
+# Docker
+docker-compose.override.yml
+Dockerfile.*
