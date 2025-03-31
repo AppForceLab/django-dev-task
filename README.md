@@ -195,3 +195,34 @@ Ran 2 tests in 0.012s
 
 OK
 ```
+
+### 🔵 Task 3: REST API Fundamentals
+
+<details open>
+<summary><strong>Expand/Collapse Details</strong></summary>
+
+#### ✅ Implemented Features
+
+- ✔️ Created versioned API under `/api/v1/`
+- ✔️ DRF-based CRUD endpoints for the `CV` model
+- ✔️ Basic validation via `serializers.py` (e.g., required fields, email format)
+- ✔️ Interactive Swagger UI documentation at `/api/v1/docs/`
+- ✔️ JSON schema available at `/api/v1/schema/`
+- ✔️ Unit tests for all endpoints
+
+#### 📌 API Endpoints
+
+| Method | Endpoint            | Description         |
+|--------|---------------------|---------------------|
+| GET    | `/api/v1/cv/`       | List all CVs        |
+| POST   | `/api/v1/cv/`       | Create a new CV     |
+| GET    | `/api/v1/cv/<id>/`  | Retrieve CV by ID   |
+| PUT    | `/api/v1/cv/<id>/`  | Update CV by ID     |
+| DELETE | `/api/v1/cv/<id>/`  | Delete CV by ID     |
+
+#### 📘 API Documentation
+
+- [Swagger UI](http://127.0.0.1:8000/api/v1/docs/)
+- [OpenAPI Schema (JSON)](http://127.0.0.1:8000/api/v1/schema/)
+
+</details>
