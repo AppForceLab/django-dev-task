@@ -226,3 +226,29 @@ OK
 - [OpenAPI Schema (JSON)](http://127.0.0.1:8000/api/v1/schema/)
 
 </details>
+
+### 🔵 Task 4: Middleware & Request Logging
+
+<details open>
+<summary><strong>Expand/Collapse Details</strong></summary>
+
+#### ✅ Implemented Features
+
+- ✔️ Created a new app `audit` to store request logs.
+- ✔️ Implemented `RequestLog` model with fields: `timestamp`, `method`, `path`, `query_string`, `remote_ip`, and `user`.
+- ✔️ Developed custom middleware `RequestLoggingMiddleware` that logs each incoming request.
+- ✔️ Skips logging for static file paths (e.g., `/static/`, `/favicon.ico`) for performance.
+- ✔️ Created `/logs/` view to display the 10 most recent requests in a styled HTML table.
+- ✔️ Added unit tests for:
+  - Basic request logging
+  - Skipping static file logging
+  - Correct user logging
+  - View accessibility and output
+
+#### 📌 URL
+
+| Route     | Description                    |
+|-----------|--------------------------------|
+| `/logs/`  | HTML view of recent requests   |
+
+</details>

@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_spectacular",
     "main",
+    "audit",
 ]
 
 MIDDLEWARE = [
+    "audit.middleware.RequestLoggingMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
