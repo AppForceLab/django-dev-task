@@ -252,3 +252,24 @@ OK
 | `/logs/`  | HTML view of recent requests   |
 
 </details>
+
+### 🔵 Task 5: Template Context Processors
+
+<details open>
+<summary><strong>Expand/Collapse Details</strong></summary>
+
+#### ✅ Implemented Features
+
+- ✔️ Created a `settings_context` context processor in `main/context_processors.py`.
+- ✔️ Injects selected Django settings (`DEBUG`, `LANGUAGE_CODE`, `TIME_ZONE`, `USE_TZ`) into all templates.
+- ✔️ Registered the context processor in `TEMPLATES['OPTIONS']['context_processors']` in `settings.py`.
+- ✔️ Added a `/settings/` view that displays the injected values in a clean HTML table.
+- ✔️ Styled the settings page using Bootstrap for consistency with the rest of the app.
+
+#### 📌 URL
+
+| Route         | Description                          |
+|---------------|--------------------------------------|
+| `/settings/`  | View that renders current settings   |
+
+</details>

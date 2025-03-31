@@ -32,3 +32,8 @@ def download_cv_pdf(request, pk):
         response.write(output.read())
 
     return response
+
+
+def settings_view(request):
+    """Display current Django settings passed via context processor."""
+    return render(request, "main/settings_view.html")

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Project Settings</h1>
+<table class="table table-striped">
+  <tr><th>DEBUG</th><td>{{ DEBUG }}</td></tr>
+  <tr><th>LANGUAGE_CODE</th><td>{{ LANGUAGE_CODE }}</td></tr>
+  <tr><th>TIME_ZONE</th><td>{{ TIME_ZONE }}</td></tr>
+  <tr><th>USE_TZ</th><td>{{ USE_TZ }}</td></tr>
+</table>
+{% endblock %}
