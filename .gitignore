@@ -172,3 +172,27 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Virtual environments
+.venv/
+env/
+
+# IDEs
+.idea/
+.vscode/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django stuff
+*.log
+db.sqlite3
+
+# Environment variables
+.env
+
+# Static & media (optional)
+staticfiles/
+media/

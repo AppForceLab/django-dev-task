@@ -1,0 +1,38 @@
+[
+  {
+    "model": "main.cv",
+    "pk": 1,
+    "fields": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "bio": "A passionate developer.",
+      "skills": "Python, Django, JavaScript",
+      "projects": "Portfolio, Blog",
+      "contacts": "john@example.com"
+    }
+  },
+  {
+    "model": "main.cv",
+    "pk": 2,
+    "fields": {
+      "firstname": "Jane",
+      "lastname": "Smith",
+      "bio": "Front-end specialist with a knack for design.",
+      "skills": "HTML, CSS, JavaScript, React",
+      "projects": "E-commerce site, Personal blog",
+      "contacts": "jane@example.com"
+    }
+  },
+  {
+    "model": "main.cv",
+    "pk": 3,
+    "fields": {
+      "firstname": "Alice",
+      "lastname": "Johnson",
+      "bio": "Full-stack developer and tech enthusiast.",
+      "skills": "Python, Django, Vue.js, PostgreSQL",
+      "projects": "Job board app, Chat application",
+      "contacts": "alice@example.com"
+    }
+  }
+]
