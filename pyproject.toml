@@ -1,31 +1,26 @@
-[project]
+[tool.poetry]
 name = "django-task"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Volodymyr Popov",email = "smartappsvp@gmail.com"}
-]
+authors = ["Volodymyr Popov <smartappsvp@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.12,<3.13"
-dependencies = [
-    "django (>=5.1.7,<6.0.0)",
-    "python-decouple (>=3.8,<4.0)",
-    "weasyprint (>=65.0,<66.0)",
-    "djangorestframework (>=3.16.0,<4.0.0)",
-    "drf-spectacular (>=0.28.0,<0.29.0)",
-    "dj-database-url (>=2.3.0,<3.0.0)",
-    "psycopg2-binary (>=2.9.10,<3.0.0)",
-    "celery (>=5.4.0,<6.0.0)",
-    "redis (>=5.2.1,<6.0.0)",
-    "openai (>=1.69.0,<2.0.0)",
-    "whitenoise (>=6.9.0,<7.0.0)",
-]
+packages = [{ include = "CVProject" }]
 
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+django = ">=5.1.7,<6.0.0"
+python-decouple = ">=3.8,<4.0"
+weasyprint = ">=65.0,<66.0"
+djangorestframework = ">=3.16.0,<4.0.0"
+drf-spectacular = ">=0.28.0,<0.29.0"
+dj-database-url = ">=2.3.0,<3.0.0"
+psycopg2-binary = ">=2.9.10,<3.0.0"
+celery = ">=5.4.0,<6.0.0"
+redis = ">=5.2.1,<6.0.0"
+openai = ">=1.69.0,<2.0.0"
+whitenoise = ">=6.9.0,<7.0.0"
+gunicorn = ">=23.0.0,<24.0.0"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry]
-name = "django-task"
-package-mode = false

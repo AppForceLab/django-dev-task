@@ -17,7 +17,11 @@ SECRET_KEY = config("SECRET_KEY", default="insecure-secret-key")
 # DEBUG = True
 DEBUG = config("DEBUG", cast=bool, default=True)
 
-ALLOWED_HOSTS = ["0.0.0.0", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "34.244.208.38",
+    "ec2-34-244-208-38.eu-west-1.compute.amazonaws.com",
+    "localhost",
+]
 
 
 # Application definition
