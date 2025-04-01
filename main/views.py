@@ -1,6 +1,5 @@
 import tempfile
 import os
-
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -10,7 +9,6 @@ from openai import OpenAI
 from weasyprint import HTML
 
 from .constants import TRANSLATION_LANGUAGES
-
 from .models import CV
 from .tasks import send_pdf_to_email
 

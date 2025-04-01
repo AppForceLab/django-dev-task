@@ -1,8 +1,14 @@
 from django.urls import path, include
+from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
 from main import views
 
+
 urlpatterns = [
+    path("admin/", admin.site.urls),
     # Web views
     path("", views.cv_list, name="cv_list"),
     path("cv/<int:pk>/", views.cv_detail, name="cv_detail"),
@@ -19,3 +25,6 @@ urlpatterns = [
     ),
     path("api/", include("main.api.urls")),
 ]
+
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

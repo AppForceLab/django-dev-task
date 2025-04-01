@@ -1781,6 +1781,21 @@ files = [
 ]
 
 [[package]]
+name = "whitenoise"
+version = "6.9.0"
+description = "Radically simplified static file serving for WSGI applications"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "whitenoise-6.9.0-py3-none-any.whl", hash = "sha256:c8a489049b7ee9889617bb4c274a153f3d979e8f51d2efd0f5b403caf41c57df"},
+    {file = "whitenoise-6.9.0.tar.gz", hash = "sha256:8c4a7c9d384694990c26f3047e118c691557481d624f069b7f7752a2f735d609"},
+]
+
+[package.extras]
+brotli = ["brotli"]
+
+[[package]]
 name = "zopfli"
 version = "0.2.3.post1"
 description = "Zopfli module for python"
@@ -1867,4 +1882,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.13"
-content-hash = "5f98fa612cb3bb3afe8a0cc915276144f0a3eb73060a64ce5868c49a696d2d55"
+content-hash = "8c53228bf97b30452c68ca6b2a89317462b4bd702f4f5b55a135503f64ba7a77"

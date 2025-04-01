@@ -3,6 +3,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.conf import settings
 from weasyprint import HTML
+
 from main.models import CV
 from celery import shared_task
 
